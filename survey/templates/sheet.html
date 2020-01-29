@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <table>
+        <tr>
+            <th>name</th>
+            <th>house</th>
+            <th>position</th>
+        </tr>
+        {% for student in registers %}
+            <tr>
+                {% for field in student %}
+                <td>{{ field }}</li>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

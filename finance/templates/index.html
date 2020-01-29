@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    index
+{% endblock %}
+
+{% block main %}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>${{ '%0.2f' | format(total) }}</td>
+            </tr>
+        </tfoot>
+
+        <tbody>
+
+            {% for raws in lis %}
+                <tr>
+                    <td>{{ raws.symbol }}</td>
+                    <td>{{ raws.name }}</td>
+                    <td>{{ raws.shares }}</td>
+                    <td>${{ '%0.2f' | format(raws.price) }}</td>
+                    <td>${{ '%0.2f' | format(raws.total) }}</td>
+                </tr>
+            {% endfor %}
+
+            <tr>
+                <td>CASH</td>
+                <td colspan="3"></td>
+                <td>${{ '%0.2f' | format(cash) }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}
